@@ -52,12 +52,11 @@ public class ArrowMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.GetComponent<Unit>())
         {
-            // It shoud changeing to interface for each enemies.
             Destroy(gameObject);
-            BallonAction ballon = collision.GetComponent<BallonAction>();
-            ballon.Destroyed();
+            Unit unit = collision.GetComponent<Unit>();
+            unit.Hit(1);
         }
     }
 }

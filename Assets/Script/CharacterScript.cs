@@ -21,6 +21,7 @@ public class BirdScript : MonoBehaviour
         character = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>(); // Using for the flip
         Application.targetFrameRate = 120;
+        character.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     // Update is called once per frame
