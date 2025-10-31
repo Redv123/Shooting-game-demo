@@ -1,20 +1,15 @@
+using System;
 using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    [SerializeField] private ScoreManager score;
-
     [SerializeField] protected int point = 0;
     protected SpriteRenderer characterSprite;
     private bool die = false;
-    protected int hp;
-    [SerializeField] protected AudioSource sound;
+    [SerializeField] protected int hp = 1;
     [SerializeField] protected AudioClip destroySound;
-    void Start()
-    {
-        characterSprite = GetComponent<SpriteRenderer>();
-        sound = GetComponent<AudioSource>();
-    }
+
+    public static Action<int> OnScored;
 
     public void Hit(int damage)
     {
@@ -32,13 +27,9 @@ public class Unit : MonoBehaviour
 
     private void Die()
     {
-        characterSprite.enabled = false;
-        sound.PlayOneShot(destroySound);
-        Destroy(gameObject, destroySound.length);
-        if (point > 0)
-        {
-            gameObject.tag = "Untagged";
-            score.AddScore(point);
-        }
+        Sound.OnSound.Invoke(destroySound);
+        gameObject.tag = "Untagged";
+        Destroy(gameObject);
+        OnScored.Invoke(point);
     }
 }

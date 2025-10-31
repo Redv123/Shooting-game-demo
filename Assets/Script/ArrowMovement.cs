@@ -50,12 +50,12 @@ public class ArrowMovement : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Unit>())
+        Unit unit = collision.GetComponent<Unit>();
+        if (unit)
         {
             Destroy(gameObject);
-            Unit unit = collision.GetComponent<Unit>();
             unit.Hit(1);
         }
     }

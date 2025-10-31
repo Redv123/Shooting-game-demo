@@ -9,17 +9,28 @@ public class ScoreManager : MonoBehaviour
     public object character;
     private AudioSource sound;
     public AudioClip winSound;
+    private static int Score = 0;
 
     public void Start()
     {
         sound = GetComponent<AudioSource>();
-        scoreText.text = "Score:" + GameData.Score;
+        scoreText.text = "Score:" + Score;
     }
 
+    private void OnEnable()
+    {
+        Unit.OnScored += AddScore;
+    }
+
+    private void OnDisable()
+    {
+        Unit.OnScored -= AddScore;
+    }
+    
     public void AddScore(int value)
     {
-        GameData.Score += value;
-        scoreText.text = "Score: " + GameData.Score;
+        Score += value;
+        scoreText.text = "Score: " + Score;
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0 && GameData.Level != 3)

@@ -10,14 +10,11 @@ public class BirdScript : MonoBehaviour
     private SpriteRenderer sr;
     public GameObject arrowPrefab;
     public float speed = 5f;
-
-    public AudioSource sound;
     public AudioClip soundEffect;
     public AudioClip lose;
 
     void Start()
     {
-        sound = GetComponent<AudioSource>();
         character = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>(); // Using for the flip
         Application.targetFrameRate = 120;
@@ -64,7 +61,7 @@ public class BirdScript : MonoBehaviour
 
         if (keyboard.spaceKey.wasPressedThisFrame)
         {
-            sound.PlayOneShot(soundEffect);
+            Sound.OnSound.Invoke(soundEffect);
             GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
             arrow.GetComponent<ArrowMovement>().Init(sr.flipX);
         }
@@ -103,9 +100,8 @@ public class BirdScript : MonoBehaviour
         if (collision.tag == "Fireball")
         {
             Destroy(collision.gameObject);
-            sr.enabled = false;
-            sound.PlayOneShot(lose);
-            Destroy(gameObject, lose.length);
+            Sound.OnSound.Invoke(lose);
+            Destroy(gameObject);
         }
     }
 }
