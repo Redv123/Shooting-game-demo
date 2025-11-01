@@ -142,4 +142,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   point: 2
   hp: 2
-  destroySound: {fileID: 0}
+  destroySound: {fileID: 8300000, guid: 8ee646d0554894c6a9c05f3828a77876, type: 3}
+  fireball: {fileID: 5684764562649947905, guid: e794b258ad3134d64b66559a7d15f891, type: 3}

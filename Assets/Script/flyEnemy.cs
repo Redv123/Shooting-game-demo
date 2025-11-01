@@ -3,9 +3,9 @@ using System.Collections;
 
 public class flyEnemy : Unit
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private int speed = 6;
     private float startPointX;
+    private readonly WaitForSeconds shortWait = new (2f);
     [SerializeField] private GameObject fireball;
     void Start()
     {
@@ -24,7 +24,7 @@ public class flyEnemy : Unit
     private IEnumerator Fireball()
     {
         Instantiate(fireball, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(2f);
+        yield return shortWait;
         StartCoroutine(Fireball());
     }
 
