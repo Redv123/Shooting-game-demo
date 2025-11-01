@@ -140,6 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa6b0683e5814131adc86d901be717e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  point: 1
+  point: 2
   hp: 2
   destroySound: {fileID: 0}
