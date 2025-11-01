@@ -22,4 +22,9 @@ public class SoundManager : MonoBehaviour
     {
         sound.PlayOneShot(input);
     }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 }

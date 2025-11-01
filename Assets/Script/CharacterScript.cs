@@ -8,7 +8,7 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D character;
     private Vector2 moveInput;
     private SpriteRenderer sr;
-    public GameObject arrowPrefab;
+    [SerializeField] private GameObject arrowPrefab;
     public float speed = 5f;
     public AudioClip soundEffect;
     public AudioClip lose;

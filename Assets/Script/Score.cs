@@ -3,17 +3,17 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+
 public class ScoreManager : MonoBehaviour
 {
     public TMP_Text scoreText;
     public object character;
-    private AudioSource sound;
     public AudioClip winSound;
     private static int Score = 0;
 
+
     public void Start()
     {
-        sound = GetComponent<AudioSource>();
         scoreText.text = "Score:" + Score;
     }
 
@@ -42,7 +42,7 @@ public class ScoreManager : MonoBehaviour
     private IEnumerator nextLevel()
     {
         yield return new WaitForSeconds(2f);
-        sound.PlayOneShot(winSound);
+        Sound.OnSound.Invoke(winSound);
         yield return new WaitForSeconds(winSound.length);
         GameData.Level++;
         SceneManager.LoadScene("Level" + GameData.Level);
