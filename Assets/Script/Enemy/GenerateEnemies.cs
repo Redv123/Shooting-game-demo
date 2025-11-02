@@ -11,13 +11,15 @@ public class GenerateEnemies : MonoBehaviour
     void Start()
     {
         startPointX = transform.position.x;
+        startPointY = transform.position.y;
         StartCoroutine(Generate());
     }
     
     private IEnumerator Generate()
     {
-        startPointY = Random.Range(-50f, 50f);
+        startPointY += Random.Range(-5f, 20f);
         Instantiate(enemy, new Vector2(startPointX,startPointY), Quaternion.identity);
         yield return shortWait;
+        StartCoroutine(Generate());
     }
 }

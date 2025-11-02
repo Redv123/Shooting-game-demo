@@ -3,31 +3,35 @@ using System.Collections;
 
 public class flyEnemy : Unit
 {
-    private int speed = 6;
+    private float speed = 8f;
     private float startPointX;
-    private readonly WaitForSeconds shortWait = new (2f);
+    private readonly WaitForSeconds shortWait = new(2f);
     [SerializeField] private GameObject fireball;
+    private float localTime = 0f;
     void Start()
     {
         startPointX = transform.position.x;
-        StartCoroutine(Fireball());
     }
 
     void FixedUpdate()
     {
-        float x = startPointX - speed * Time.fixedTime;
-        float y = 4f * Mathf.Sin(2f * Time.fixedTime);
+        localTime += Time.fixedDeltaTime;
+        float x = startPointX - speed * localTime;
+        float y = 2f * Mathf.Sin(2f * localTime);
         transform.position = new Vector2(x, y);
     }
 
-
-    private IEnumerator Fireball()
+    void OnBecameVisible()
     {
-        Instantiate(fireball, transform.position, Quaternion.identity);
-        yield return shortWait;
         StartCoroutine(Fireball());
     }
 
+    private IEnumerator Fireball()
+    {
+        yield return shortWait;
+        Instantiate(fireball, transform.position, Quaternion.identity);
+        StartCoroutine(Fireball());
+    }
 
     void OnBecameInvisible()
     {
