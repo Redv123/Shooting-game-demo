@@ -1,24 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BirdScript : MonoBehaviour
+public class PlayerMoverment : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     public Rigidbody2D character;
     private Vector2 moveInput;
     private SpriteRenderer sr;
     [SerializeField] private GameObject arrowPrefab;
     public float speed = 5f;
     public AudioClip soundEffect;
-    public AudioClip lose;
 
     void Start()
     {
         character = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>(); // Using for the flip
-        Application.targetFrameRate = 120;
-        character.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     // Update is called once per frame
@@ -86,22 +81,6 @@ public class BirdScript : MonoBehaviour
             newPos.y = Mathf.Clamp(newPos.y, bottomBound, topBound);
         }
 
-
         character.MovePosition(newPos);
-    }
-
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Fireball")
-        {
-            Destroy(collision.gameObject);
-            Sound.OnSound.Invoke(lose);
-            Destroy(gameObject);
-        }
     }
 }

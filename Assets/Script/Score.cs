@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
 
     public void Start()
     {
-        scoreText.text = "Score:" + Score;
+        scoreText.text = "Score: " + Score;
     }
 
     private void OnEnable()

@@ -30,6 +30,7 @@ public class Unit : MonoBehaviour
         Sound.OnSound.Invoke(destroySound);
         gameObject.tag = "Untagged";
         Destroy(gameObject);
-        OnScored.Invoke(point);
+        if (point > 0)
+            OnScored.Invoke(point);
     }
 }

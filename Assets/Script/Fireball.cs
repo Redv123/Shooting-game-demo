@@ -23,4 +23,14 @@ public class Fireball : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Unit unit = collision.GetComponent<Unit>();
+        if (unit)
+        {
+            Destroy(gameObject);
+            unit.Hit(1);
+        }
+    }
 }
