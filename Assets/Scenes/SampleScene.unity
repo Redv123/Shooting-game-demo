@@ -1916,6 +1916,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball
       objectReference: {fileID: 0}
+    - target: {fileID: 6519438643655584830, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519438643655584830, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519438643655584830, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
+      propertyPath: m_Size.x
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519438643655584830, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
+      propertyPath: m_Size.y
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519438643655584830, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8587970630395617126, guid: fd3a1997df27c70f78e6b90005354fb7, type: 3}
+    - target: {fileID: 6519438643655584830, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6741942441844915513, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.96

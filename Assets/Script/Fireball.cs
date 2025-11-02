@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-        private float speed = 15f;
+    private float speed = 15f;
 
     void FixedUpdate()
     {
