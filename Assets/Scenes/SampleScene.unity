@@ -1912,6 +1912,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5501873163573059645, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684764562649947905, guid: e794b258ad3134d64b66559a7d15f891, type: 3}
       propertyPath: m_Name
       value: Fireball
