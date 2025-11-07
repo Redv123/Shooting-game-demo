@@ -35,11 +35,11 @@ public class ScoreManager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0 && GameData.Level != 3)
         {
-            StartCoroutine(nextLevel());
+            StartCoroutine(NextLevel());
         }
     }
 
-    private IEnumerator nextLevel()
+    private IEnumerator NextLevel()
     {
         yield return new WaitForSeconds(2f);
         Sound.OnSound.Invoke(winSound);
