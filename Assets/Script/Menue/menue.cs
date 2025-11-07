@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class menue : MonoBehaviour
 {
-    public void Click()
+    public void StartClicked()
     {
-        Debug.Log("Test");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void Quit()
