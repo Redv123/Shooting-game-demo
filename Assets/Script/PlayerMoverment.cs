@@ -54,7 +54,7 @@ public class PlayerMoverment : MonoBehaviour
             sr.flipX = true;
         }
 
-        if (keyboard.spaceKey.wasPressedThisFrame)
+        if (keyboard.spaceKey.wasPressedThisFrame || keyboard.jKey.wasPressedThisFrame)
         {
             Sound.OnSound.Invoke(soundEffect);
             GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
