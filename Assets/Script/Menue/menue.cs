@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class menue : MonoBehaviour
 {
     public void StartClicked()
@@ -8,8 +7,14 @@ public class menue : MonoBehaviour
         SceneManager.LoadScene("Level 1");
     }
 
+    public void Setting()
+    {
+        SceneManager.LoadScene("Setting");
+    }
+
     public void Quit()
     {
         Application.Quit();
     }
+
 }
