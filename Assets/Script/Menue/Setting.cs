@@ -13,4 +13,10 @@ public class Setting : MonoBehaviour
         Screen.fullScreen = fullScreen;
     }
 
+
+    public void ChangedVolume(float value)
+    {
+        AudioListener.volume = value;
+    }
+
 }
