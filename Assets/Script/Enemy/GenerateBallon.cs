@@ -33,8 +33,6 @@ public class GenerateBallon : MonoBehaviour
     {
         yield return new WaitForSeconds(60f);
         GameData.end = true;
-
-        //Check if the player win
-        Unit.OnScored?.Invoke(0);
+        Unit.CheckWin?.Invoke();
     }
 }
