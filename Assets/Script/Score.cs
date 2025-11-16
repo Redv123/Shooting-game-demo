@@ -26,18 +26,18 @@ public class ScoreManager : MonoBehaviour
     {
         Unit.OnScored -= AddScore;
     }
-    
+
     public void AddScore(int value)
     {
         Score += value;
         scoreText.text = "Score: " + Score;
-
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length == 0 && GameData.Level != 3)
+        if (enemies.Length == 0 && GameData.end && GameData.Level != 3)
         {
             StartCoroutine(NextLevel());
         }
     }
+
 
     private IEnumerator NextLevel()
     {
