@@ -20,17 +20,24 @@ public class ScoreManager : MonoBehaviour
     private void OnEnable()
     {
         Unit.OnScored += AddScore;
+        Unit.CheckWin += IsWin;
     }
 
     private void OnDisable()
     {
         Unit.OnScored -= AddScore;
+        Unit.CheckWin -= IsWin;
     }
 
     public void AddScore(int value)
     {
         Score += value;
         scoreText.text = "Score: " + Score;
+        IsWin();
+    }
+
+    public void IsWin()
+    {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0 && GameData.end && GameData.Level != 3)
         {

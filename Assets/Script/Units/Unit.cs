@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour
     [SerializeField] protected AudioClip destroySound;
 
     public static Action<int> OnScored;
+    public static Action CheckWin;
 
     public void Hit(int damage)
     {
@@ -31,6 +32,6 @@ public class Unit : MonoBehaviour
         gameObject.tag = "Untagged";
         Destroy(gameObject);
         if (point > 0)
-            OnScored.Invoke(point);
+            OnScored?.Invoke(point);
     }
 }

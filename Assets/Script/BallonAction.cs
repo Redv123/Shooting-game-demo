@@ -8,6 +8,8 @@ public class BallonAction : Unit
     public void OnBecameInvisible()
     {
         Destroy(gameObject);
+        //Check if the player win
+        CheckWin?.Invoke();
     }
 
     void FixedUpdate()

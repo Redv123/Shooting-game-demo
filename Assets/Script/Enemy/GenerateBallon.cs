@@ -11,6 +11,7 @@ public class GenerateBallon : MonoBehaviour
 
     void Start()
     {
+        GameData.end = false; // reset level end state when level starts
         StartCoroutine(End());
         StartCoroutine(Generate());
     }
@@ -34,6 +35,6 @@ public class GenerateBallon : MonoBehaviour
         GameData.end = true;
 
         //Check if the player win
-        Unit.OnScored.Invoke(0);
+        Unit.OnScored?.Invoke(0);
     }
 }

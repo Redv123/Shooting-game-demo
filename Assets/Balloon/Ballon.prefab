@@ -141,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25a82c8206594142afb0dfcdd844295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  score: {fileID: 0}
-  point: 0
-  sound: {fileID: 0}
+  point: 1
+  hp: 1
   destroySound: {fileID: 8300000, guid: 8ee646d0554894c6a9c05f3828a77876, type: 3}
+  speed: 7
+  move: 1
