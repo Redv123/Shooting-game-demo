@@ -17,15 +17,14 @@ public class GenerateBallon : MonoBehaviour
     }
     private IEnumerator Generate()
     {
-        int random = Random.Range(0, startPoint.Length);
-        startPointX = startPoint[random].position.x;
-        startPointY = startPoint[random].position.y;
-
-        Instantiate(enemy, new Vector2(startPointX, startPointY), Quaternion.identity);
-        yield return shortWait;
-        if (!GameData.end)
+        while (!GameData.end)
         {
-            StartCoroutine(Generate());
+            int random = Random.Range(0, startPoint.Length);
+            startPointX = startPoint[random].position.x;
+            startPointY = startPoint[random].position.y;
+
+            Instantiate(enemy, new Vector2(startPointX, startPointY), Quaternion.identity);
+            yield return shortWait;
         }
     }
 
