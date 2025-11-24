@@ -11,6 +11,8 @@ public class ScoreManager : MonoBehaviour
     public AudioClip winSound;
     private static int Score = 0;
 
+    [SerializeField] string playerName = "unknow";
+
     private SaveData data;
 
     private void Awake()
@@ -49,7 +51,7 @@ public class ScoreManager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0 && GameData.end && GameData.Level != 3)
         {
-            data.SaveGame(Score);
+            data.SaveGame(playerName,Score);
             StartCoroutine(NextLevel());
         }
     }
@@ -63,7 +65,7 @@ public class ScoreManager : MonoBehaviour
         SceneManager.LoadScene("Level" + GameData.Level);
     }
 
-    public int[] Load()
+    public BestScores[] Load()
     {
         return data.LoadGame();
     }

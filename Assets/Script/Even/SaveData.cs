@@ -1,13 +1,15 @@
 using System;
 using UnityEngine;
 
+public struct BestScores { public string name; public int score; }
+
 [Serializable]
 public class SaveData
 {
-    private int[] bestScores = new int[5];
+    [SerializeField] private BestScores[] bestScores = new BestScores[5];
     private const string SaveKey = "Save";
 
-    public void SaveGame(int score)
+    public void SaveGame(string name ,int score)
     {
         if (PlayerPrefs.HasKey(SaveKey)) // If player have save file
         {
@@ -23,21 +25,21 @@ public class SaveData
             int minIndex = 0;
             for (int i = 1; i < bestScores.Length; i++)
             {
-                if (bestScores[i] < bestScores[minIndex])
+                if (bestScores[i].score < bestScores[minIndex].score)
                     minIndex = i;
             }
 
-            if (score > bestScores[minIndex])
+            if (score > bestScores[minIndex].score)
             {
-                bestScores[minIndex] = score;
+                bestScores[minIndex].score = score;
+                bestScores[minIndex].name = name;
             }
 
-            Array.Sort(bestScores);
-            Array.Reverse(bestScores);
+            Array.Sort(bestScores, (a, b) => b.score.CompareTo(a.score));
         }
         else
         {
-            bestScores[0] = score;
+            bestScores[0].score = score;
         }
 
 
@@ -46,11 +48,11 @@ public class SaveData
         PlayerPrefs.Save();
     }
 
-    public int[] LoadGame()
+    public BestScores[] LoadGame()
     {
         if (!PlayerPrefs.HasKey(SaveKey))
         {
-            bestScores = new int[5];
+            bestScores = new BestScores[5];
         }
         else
         {
@@ -59,7 +61,7 @@ public class SaveData
 
             bestScores = (data.bestScores != null && data.bestScores.Length == 5)
                 ? data.bestScores
-                : new int[5]; // Make sure the player have save file
+                : new BestScores[5]; // Make sure the player have save file
         }
         return bestScores;
     }
