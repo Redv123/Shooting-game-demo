@@ -7,7 +7,7 @@ public class BallonAction : Unit
     private readonly WaitForSeconds shortWait = new(0.1f);
 
 
-    public void Start()
+    void Start()
     {
         if (move == true)
         {
@@ -19,7 +19,7 @@ public class BallonAction : Unit
         }
     }
 
-    public void OnBecameInvisible()
+    void OnBecameInvisible()
     {
         Destroy(gameObject);
         //Check if the player win
