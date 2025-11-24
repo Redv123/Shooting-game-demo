@@ -12,6 +12,7 @@ public class BallonAction : Unit
         if (move == true)
         {
             int random = Random.Range(0, 3);
+
             if (random == 1)
             {
                 StartCoroutine(StartBiger());
@@ -34,19 +35,27 @@ public class BallonAction : Unit
         }
     }
 
-    private IEnumerator StartBiger()
+    IEnumerator StartBiger()
     {
         StartCoroutine(Biger());
         yield return new WaitForSeconds(5f);
         OnScored?.Invoke(0);
     }
 
-    private IEnumerator Biger()
+    IEnumerator Biger()
     {
+        StartCoroutine(KillBellon());
         while (true)
         {
             yield return shortWait;
             transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         }
+    }
+
+    IEnumerator KillBellon()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
+        CheckWin?.Invoke();
     }
 }
