@@ -4,12 +4,10 @@ using UnityEngine;
 [Serializable]
 public class SaveData
 {
-    public int score;
-    public int[] bestScores = new int[5];
-
+    private int[] bestScores = new int[5];
     private const string SaveKey = "Save";
 
-    public void SaveGame()
+    public void SaveGame(int score)
     {
         if (PlayerPrefs.HasKey(SaveKey)) // If player have save file
         {
@@ -48,21 +46,22 @@ public class SaveData
         PlayerPrefs.Save();
     }
 
-    public void LoadGame()
+    public int[] LoadGame()
     {
         if (!PlayerPrefs.HasKey(SaveKey))
         {
-            score = 0;
             bestScores = new int[5];
-            return;
         }
+        else
+        {
+            string json = PlayerPrefs.GetString(SaveKey);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-        string json = PlayerPrefs.GetString(SaveKey);
-        SaveData data = JsonUtility.FromJson<SaveData>(json);
-
-        score = data.score;
-        bestScores = (data.bestScores != null && data.bestScores.Length == 5)
-            ? data.bestScores
-            : new int[5];
+            bestScores = (data.bestScores != null && data.bestScores.Length == 5)
+                ? data.bestScores
+                : new int[5]; // Make sure the player have save file
+        }
+        return bestScores;
     }
+
 }

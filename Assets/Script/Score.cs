@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     public AudioClip winSound;
     private static int Score = 0;
 
-    public SaveData data;
+    private SaveData data;
 
     private void Awake()
     {
@@ -49,12 +49,10 @@ public class ScoreManager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0 && GameData.end && GameData.Level != 3)
         {
-            data.score = Score;
-            data.SaveGame();
+            data.SaveGame(Score);
             StartCoroutine(NextLevel());
         }
     }
-
 
     private IEnumerator NextLevel()
     {
@@ -63,5 +61,10 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(winSound.length);
         GameData.Level++;
         SceneManager.LoadScene("Level" + GameData.Level);
+    }
+
+    public int[] Load()
+    {
+        return data.LoadGame();
     }
 }
