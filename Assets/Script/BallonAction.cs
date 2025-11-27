@@ -54,8 +54,9 @@ public class BallonAction : Unit
 
     IEnumerator KillBellon()
     {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(2.5f);
+        point = 0;
+        Hit(1);
         CheckWin?.Invoke();
     }
 }
