@@ -9,6 +9,8 @@ TagManager:
   - Fireball
   - Ground
   - Balloon
+  - Score
+  - Pause
   layers:
   - Default
   - TransparentFX

@@ -19,6 +19,11 @@ public class PlayerMoverment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+
         moveInput = Vector2.zero;
         var keyboard = Keyboard.current;
 
