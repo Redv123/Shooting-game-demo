@@ -6,7 +6,7 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TMP_Text scoreText;
+    private TMP_Text scoreText;
     public object character;
     public AudioClip winSound;
     private static int Score = 0;
@@ -24,7 +24,11 @@ public class ScoreManager : MonoBehaviour
 
     public void Start()
     {
-        scoreText.text = "Score: " + Score;
+        if (SceneManager.GetActiveScene().name.Contains("Level"))
+        {
+            scoreText = FindAnyObjectByType<TMP_Text>();
+            scoreText.text = "Score: " + Score;
+        }
     }
 
     private void OnEnable()
@@ -49,10 +53,14 @@ public class ScoreManager : MonoBehaviour
     public void IsWin()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length == 0 && GameData.end && GameData.Level != 3)
+        if (enemies.Length == 0 && GameData.end && GameData.Level != 2)
         {
             data.SaveGame(playerName,Score);
             StartCoroutine(NextLevel());
+        }
+        else
+        {
+            data.SaveGame(playerName,Score);
         }
     }
 

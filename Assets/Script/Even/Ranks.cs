@@ -6,21 +6,30 @@ public class Ranks : MonoBehaviour
     private ScoreManager scoreManager;
     private BestScores[] scores;
     [SerializeField] private TMP_Text[] scoreText = new TMP_Text[5];
+    [SerializeField] private TMP_Text[] playerName = new TMP_Text[5];
 
     void Start()
     {
         scoreManager = FindAnyObjectByType<ScoreManager>();
         scores = scoreManager.Load();
 
+        if (scores[0].score == 0)
+        {
+            playerName[0].text = "Unknow";
+            return;
+        }
+        
         for (int i = 0; i < scoreText.Length; i++)
         {
             if (scores[i].score != 0)
             {
-                scoreText[i].text = scores[i].name + " : " + scores[i].score;
+                playerName[i].text = scores[i].name;
+                scoreText[i].text = scores[i].score.ToString();
             }
             else
             {
-                scoreText[i].text = "……";
+                playerName[i].text = "";
+                scoreText[i].text = "";
             }
         }
     }
