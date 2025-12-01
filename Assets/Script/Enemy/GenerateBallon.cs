@@ -14,6 +14,7 @@ public class GenerateBallon : MonoBehaviour
         GameData.end = false; // reset level end state when level starts
         StartCoroutine(End());
         StartCoroutine(Generate());
+        MusicManager.Instance.StopMusic();
     }
     private IEnumerator Generate()
     {
