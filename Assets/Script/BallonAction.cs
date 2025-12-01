@@ -15,6 +15,7 @@ public class BallonAction : Unit
 
             if (random == 1)
             {
+                point = 2;
                 StartCoroutine(StartBiger());
             }
         }
