@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Setting : MonoBehaviour
 {
-    public void GoBack()
+    public void Confirm()
     {
         SceneManager.LoadScene("Start");
     }
