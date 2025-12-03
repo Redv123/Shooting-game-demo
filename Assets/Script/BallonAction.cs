@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class BallonAction : Unit
 {
-    public float speed = 7f;
+    private float speed = 7f;
     [SerializeField] private bool move = true;
     private readonly WaitForSeconds shortWait = new(0.1f);
 

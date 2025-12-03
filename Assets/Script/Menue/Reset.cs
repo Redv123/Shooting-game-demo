@@ -3,19 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class Reset : MonoBehaviour
 {
-    private float value;
+    private float volume;
     private bool fullScreen;
 
     void Awake()
     {
-        value = AudioListener.volume;
+        volume = AudioListener.volume;
         fullScreen = Screen.fullScreen;
     }
     public void SettingReset()
     {
-        AudioListener.volume = value;
+        AudioListener.volume = volume;
         Screen.fullScreen = fullScreen;
         SceneManager.LoadScene("Start");
-        
     }
 }

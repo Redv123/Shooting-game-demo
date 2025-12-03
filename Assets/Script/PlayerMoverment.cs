@@ -8,7 +8,7 @@ public class PlayerMoverment : MonoBehaviour
     private SpriteRenderer sr;
     [SerializeField] private GameObject arrowPrefab;
     public float speed = 5f;
-    public AudioClip soundEffect;
+    [SerializeField] private AudioClip soundEffect;
 
     void Start()
     {
