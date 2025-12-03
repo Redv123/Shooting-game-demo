@@ -1,21 +1,21 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Help : MonoBehaviour
 {
     [SerializeField] private GameObject helpPanel;
-    void Start()
-    {
-        helpPanel.SetActive(false);
-    }
-
+    [SerializeField] private Button [] buttons = new Button[4];
+    [SerializeField] private Button seleteButton;
 
     public void ShowHelpPanel()
     {
-        helpPanel.SetActive(true);
-    }
+        helpPanel.SetActive(!helpPanel.activeSelf);
+        EventSystem.current.SetSelectedGameObject(seleteButton.gameObject);
 
-        public void HideHelpPanel()
-    {
-        helpPanel.SetActive(false);
+        foreach (Button btn in buttons)
+        {
+                btn.interactable = !btn.interactable;
+        }
     }
 }
