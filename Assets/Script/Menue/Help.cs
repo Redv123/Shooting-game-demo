@@ -15,7 +15,7 @@ public class Help : MonoBehaviour
 
         foreach (Button btn in buttons)
         {
-                btn.interactable = !btn.interactable;
+            btn.interactable = !btn.interactable;
         }
     }
 }
