@@ -12,12 +12,6 @@ public class Ranks : MonoBehaviour
     {
         scoreManager = FindAnyObjectByType<ScoreManager>();
         scores = scoreManager.Load();
-
-        if (scores[0].score == 0)
-        {
-            playerName[0].text = "Unknow";
-            return;
-        }
         
         for (int i = 0; i < scoreText.Length; i++)
         {
