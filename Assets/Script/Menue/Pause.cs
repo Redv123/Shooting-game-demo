@@ -11,17 +11,8 @@ public class Pause : MonoBehaviour
 
         if (keyboard.enterKey.wasPressedThisFrame)
         {
-            if (Time.timeScale != 0f)
-            {
-                Time.timeScale = 0f;
-                pause.SetActive(true);
-
-            }
-            else
-            {
-                Time.timeScale = 1f;
-                pause.SetActive(false);
-            }
+            Time.timeScale = (Time.timeScale == 0f) ? 1f : 0f;
+            pause.SetActive(!pause.activeSelf);
         }
     }
 }
