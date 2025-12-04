@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
-            scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TMPro.TMP_Text>();
+            scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TMP_Text>();
             scoreText.text = "Score: " + Score;
         }
     }

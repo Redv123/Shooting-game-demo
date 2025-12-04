@@ -3,7 +3,7 @@ using UnityEngine;
 public class ArrowMovement : MonoBehaviour
 {
     public Rigidbody2D arrow;
-    public float speed = 7f;
+    [SerializeField] private float speed = 7f;
     private int direction;
     private SpriteRenderer sr;
 
