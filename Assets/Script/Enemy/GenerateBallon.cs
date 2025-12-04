@@ -8,7 +8,6 @@ public class GenerateBallon : MonoBehaviour
     private readonly WaitForSeconds shortWait = new(5f);
     private float startPointX, startPointY;
 
-
     void Start()
     {
         GameData.end = false; // reset level end state when level starts
@@ -16,7 +15,7 @@ public class GenerateBallon : MonoBehaviour
         StartCoroutine(Generate());
         MusicManager.Instance.StopMusic();
     }
-    private IEnumerator Generate()
+    IEnumerator Generate()
     {
         while (!GameData.end)
         {
@@ -29,7 +28,7 @@ public class GenerateBallon : MonoBehaviour
         }
     }
 
-    private IEnumerator End()
+    IEnumerator End()
     {
         yield return new WaitForSeconds(60f);
         GameData.end = true;

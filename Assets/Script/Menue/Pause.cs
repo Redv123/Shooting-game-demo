@@ -24,9 +24,4 @@ public class Pause : MonoBehaviour
             }
         }
     }
-
-    void Start()
-    {
-        pause.SetActive(false);
-    }
 }

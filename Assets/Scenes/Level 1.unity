@@ -1089,7 +1089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1710391699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2212,7 +2212,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 390893621012680968, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: Pause Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 390893621012680968, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1518962208858575744, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_TagString

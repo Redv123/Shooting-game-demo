@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Help : MonoBehaviour
 {
     [SerializeField] private GameObject helpPanel;
-    [SerializeField] private Button [] buttons = new Button[4];
+    [SerializeField] private Button[] buttons = new Button[4];
     [SerializeField] private Button seleteButton;
 
     public void ShowHelpPanel()

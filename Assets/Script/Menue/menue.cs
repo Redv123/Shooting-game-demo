@@ -12,9 +12,9 @@ public class menue : MonoBehaviour
         SceneManager.LoadScene("Setting");
     }
 
-    public void Quit()
+    public void Rankings()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Rankings");
     }
 
 }
