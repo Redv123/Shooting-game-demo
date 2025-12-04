@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 652001133}
   - component: {fileID: 652001134}
   m_Layer: 0
-  m_Name: Enemy Start Point (2)
+  m_Name: Start Point 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 652001132}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -3.7, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -286,6 +286,7 @@ Transform:
   m_Children:
   - {fileID: 2097677783}
   - {fileID: 652001133}
+  - {fileID: 1896553783}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1515024312
@@ -297,10 +298,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 1515024310}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf86e94807a4f386a066023410bf67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GenerateBallon
+  startPoint:
+  - {fileID: 2097677783}
+  - {fileID: 652001133}
+  - {fileID: 1896553783}
+  enemy: {fileID: 6592820903769372964, guid: a04e29fa8372c41b88ea675e293a6b03, type: 3}
+--- !u!1 &1896553782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896553783}
+  - component: {fileID: 1896553784}
+  m_Layer: 0
+  m_Name: Start Point 3
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1896553783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896553782}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.1, y: -4.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1515024311}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1896553784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896553782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8db18b2e01537790a6f71b517e494ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemy: {fileID: 6592820903769372964, guid: a04e29fa8372c41b88ea675e293a6b03, type: 3}
 --- !u!1001 &1900813962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,7 +498,7 @@ GameObject:
   - component: {fileID: 2097677783}
   - component: {fileID: 2097677784}
   m_Layer: 0
-  m_Name: Enemy Start Point (1)
+  m_Name: Start Point 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
