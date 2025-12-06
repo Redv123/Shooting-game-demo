@@ -12,9 +12,13 @@ public class Ranks : MonoBehaviour
     {
         scoreManager = FindAnyObjectByType<ScoreManager>();
         scores = scoreManager.Load();
-        
+
         for (int i = 0; i < scoreText.Length; i++)
         {
+
+            playerName[i].text = scores[i].name;
+            scoreText[i].text = scores[i].score.ToString();
+
             if (scores[i].score != 0)
             {
                 playerName[i].text = scores[i].name;

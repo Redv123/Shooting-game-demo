@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public struct BestScores { public string name; public int score; }
 
 [Serializable]
@@ -9,7 +10,7 @@ public class SaveData
     [SerializeField] private BestScores[] bestScores = new BestScores[5];
     private const string SaveKey = "Save";
 
-    public void SaveGame(string name ,int score)
+public void SaveGame(string name ,int score)
     {
         if (PlayerPrefs.HasKey(SaveKey)) // If player have save file
         {
@@ -40,6 +41,7 @@ public class SaveData
         else
         {
             bestScores[0].score = score;
+            bestScores[0].name = name;
         }
 
 
@@ -65,5 +67,4 @@ public class SaveData
         }
         return bestScores;
     }
-
 }

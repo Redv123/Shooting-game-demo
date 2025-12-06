@@ -31,6 +31,7 @@ public class Fireball : MonoBehaviour
         {
             Destroy(gameObject);
             unit.Hit(1);
+            FindAnyObjectByType<ScoreManager>().Save(); // Save the score if player die
         }
     }
 }

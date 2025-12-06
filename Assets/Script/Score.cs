@@ -55,12 +55,11 @@ public class ScoreManager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0 && GameData.end && GameData.Level != 2)
         {
-            data.SaveGame(playerName,Score);
             StartCoroutine(NextLevel());
         }
-        else
+        else if (GameData.Level == 2)
         {
-            data.SaveGame(playerName,Score);
+            Save();
         }
     }
 
@@ -71,6 +70,11 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(winSound.length);
         GameData.Level++;
         SceneManager.LoadScene("Level" + GameData.Level);
+    }
+
+    public void Save()
+    {
+        data.SaveGame(playerName,Score);
     }
 
     public BestScores[] Load()
