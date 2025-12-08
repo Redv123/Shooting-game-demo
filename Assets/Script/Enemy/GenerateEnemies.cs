@@ -30,7 +30,7 @@ public class GenerateBallon : MonoBehaviour
 
     IEnumerator End()
     {
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(40f);
         GameData.end = true;
         Unit.CheckWin?.Invoke();
     }

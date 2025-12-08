@@ -138,6 +138,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &559892106
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -183,6 +184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -8506304291824315796, guid: cde38e4141b574df7a9176e13cfc12a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -192,7 +194,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &559892107
 Transform:
@@ -218,7 +219,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 652001133}
-  - component: {fileID: 652001134}
   m_Layer: 0
   m_Name: Start Point 2
   m_TagString: Enemy
@@ -241,19 +241,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1515024311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &652001134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652001132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8db18b2e01537790a6f71b517e494ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  enemy: {fileID: 6592820903769372964, guid: a04e29fa8372c41b88ea675e293a6b03, type: 3}
 --- !u!1 &1515024310
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +302,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896553783}
-  - component: {fileID: 1896553784}
   m_Layer: 0
   m_Name: Start Point 3
   m_TagString: Enemy
@@ -338,18 +324,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1515024311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1896553784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896553782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8db18b2e01537790a6f71b517e494ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1001 &1900813962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 390893621012680968, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_Name
       value: Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 390893621012680968, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3825392166724133954, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_UiScaleMode
@@ -496,7 +474,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2097677783}
-  - component: {fileID: 2097677784}
   m_Layer: 0
   m_Name: Start Point 1
   m_TagString: Enemy
@@ -519,19 +496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1515024311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2097677784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097677782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8db18b2e01537790a6f71b517e494ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  enemy: {fileID: 6592820903769372964, guid: a04e29fa8372c41b88ea675e293a6b03, type: 3}
 --- !u!1 &2111012832
 GameObject:
   m_ObjectHideFlags: 0

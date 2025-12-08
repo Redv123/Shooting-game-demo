@@ -56,6 +56,8 @@ public class ScoreManager : MonoBehaviour
         if (enemies.Length == 0 && GameData.end && GameData.Level != 2)
         {
             StartCoroutine(NextLevel());
+            // For readability
+            scoreText.color = Color.white;
         }
         else if (GameData.Level == 2)
         {

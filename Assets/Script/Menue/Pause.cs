@@ -15,4 +15,9 @@ public class Pause : MonoBehaviour
             pause.SetActive(!pause.activeSelf);
         }
     }
+
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 }
