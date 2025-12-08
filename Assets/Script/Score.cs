@@ -11,18 +11,15 @@ public class ScoreManager : MonoBehaviour
     public AudioClip winSound;
     private static int Score = 0;
 
-    [SerializeField] string playerName = "unknow";
-
     private SaveData data;
 
-    private void Awake()
+    void Awake()
     {
         data = new SaveData();
         data.LoadGame();
     }
 
-
-    public void Start()
+    void Start()
     {
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
@@ -31,13 +28,13 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         Unit.OnScored += AddScore;
         Unit.CheckWin += IsWin;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         Unit.OnScored -= AddScore;
         Unit.CheckWin -= IsWin;
@@ -65,7 +62,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private IEnumerator NextLevel()
+    IEnumerator NextLevel()
     {
         yield return new WaitForSeconds(2f);
         Sound.OnSound.Invoke(winSound);
@@ -76,7 +73,7 @@ public class ScoreManager : MonoBehaviour
 
     public void Save()
     {
-        data.SaveGame(playerName,Score);
+        data.SaveGame(GameData.playerName,Score);
     }
 
     public BestScores[] Load()
