@@ -15,6 +15,6 @@ public class Reset : MonoBehaviour
     {
         AudioListener.volume = volume;
         Screen.fullScreen = fullScreen;
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Start Menue");
     }
 }

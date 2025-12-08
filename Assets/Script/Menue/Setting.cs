@@ -5,7 +5,7 @@ public class Setting : MonoBehaviour
 {
     public void Confirm()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Start Menue");
     }
 
     public void ToggleFullscreen(bool fullScreen)

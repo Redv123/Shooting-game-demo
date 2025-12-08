@@ -4,6 +4,6 @@ public class Rankings : MonoBehaviour
 {
     public void GoBack()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Start Menue");
     }
 }
