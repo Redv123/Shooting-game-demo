@@ -71,6 +71,7 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(winSound.length);
         SceneManager.LoadScene("Start Menue");
         MusicManager.Instance.PlayMusic(music);
+        Destroy(gameObject);
     }
 
 
