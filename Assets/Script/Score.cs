@@ -67,7 +67,6 @@ public class ScoreManager : MonoBehaviour
         {
             Save();
             StartCoroutine(Win());
-
         }
     }
 
