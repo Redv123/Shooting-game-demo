@@ -15,6 +15,7 @@ public class ScoreManager : MonoBehaviour
 
     void Awake()
     {
+        GameData.Level = 1;
         data = new SaveData();
         data.LoadGame();
     }
@@ -57,8 +58,17 @@ public class ScoreManager : MonoBehaviour
         else if (GameData.Level == 2)
         {
             Save();
+            StartCoroutine(Win());
         }
     }
+
+    IEnumerator Win()
+    {
+        Sound.OnSound.Invoke(winSound);
+        yield return new WaitForSeconds(winSound.length);
+        SceneManager.LoadScene("Start Menue");
+    }
+
 
     IEnumerator NextLevel()
     {

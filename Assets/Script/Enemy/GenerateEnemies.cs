@@ -7,7 +7,7 @@ public class GenerateBallon : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private AudioClip music;
     private readonly WaitForSeconds shortWait = new(5f);
-    private readonly WaitForSeconds nextOne = new(0.02f);
+    private readonly WaitForSeconds nextOne = new(0.2f);
     private bool half = false;
     private float startPointX, startPointY;
 
