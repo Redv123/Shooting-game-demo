@@ -2285,7 +2285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399894923410401484, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3399894923410401484, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2293,7 +2293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399894923410401484, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3399894923410401484, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_AnchorMin.y
@@ -2305,7 +2305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399894923410401484, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 3399894923410401484, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2412,6 +2412,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7388453446366026454, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388453446366026454, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 8c017abd60d924e9789e8dfd85b6aea3, type: 2}
@@ -2419,6 +2423,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -6928608300973674510, guid: 8c017abd60d924e9789e8dfd85b6aea3, type: 2}
+    - target: {fileID: 7388453446366026454, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279900698
+      objectReference: {fileID: 0}
     - target: {fileID: 7388453446366026454, guid: 3f5b79ccddcd64bf9a3d98f7802dbec1, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0

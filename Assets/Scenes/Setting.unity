@@ -970,7 +970,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 891330101}
-        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
+        m_TargetAssemblyTypeName: FullScreen, Assembly-CSharp
         m_MethodName: ToggleFullscreen
         m_Mode: 0
         m_Arguments:
@@ -991,9 +991,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 891330098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c98c638eba24791b549b11463a2192, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d22166e5ff344bb3923ad295f855e6d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Setting
+  m_EditorClassIdentifier: Assembly-CSharp::FullScreen
 --- !u!1 &934121989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1357,52 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1133679407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1133679409}
+  - component: {fileID: 1133679408}
+  m_Layer: 0
+  m_Name: Reset Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1133679408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133679407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358174a62f5cd41bc86528d87b1a7e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::isFullScreen
+  FullScreenToggle: {fileID: 891330100}
+  slider: {fileID: 428079220}
+--- !u!4 &1133679409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133679407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 470.5, y: 252.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153126002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,3 +2240,4 @@ SceneRoots:
   - {fileID: 1124066820}
   - {fileID: 369878145}
   - {fileID: 1322680711}
+  - {fileID: 1133679409}

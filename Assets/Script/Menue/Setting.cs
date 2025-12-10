@@ -3,14 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class Setting : MonoBehaviour
 {
+
     public void Confirm()
     {
         SceneManager.LoadScene("Start Menue");
-    }
-
-    public void ToggleFullscreen(bool fullScreen)
-    {
-        Screen.fullScreen = fullScreen;
     }
 
 
