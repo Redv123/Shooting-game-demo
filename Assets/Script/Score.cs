@@ -8,8 +8,10 @@ public class ScoreManager : MonoBehaviour
 {
     private TMP_Text scoreText;
     public object character;
-    public AudioClip winSound;
+     [SerializeField]private AudioClip winSound;
     private static int Score = 0;
+
+    [SerializeField] private AudioClip music;
 
     private SaveData data;
 
@@ -64,9 +66,11 @@ public class ScoreManager : MonoBehaviour
 
     IEnumerator Win()
     {
+        MusicManager.Instance.StopMusic();
         Sound.OnSound.Invoke(winSound);
         yield return new WaitForSeconds(winSound.length);
         SceneManager.LoadScene("Start Menue");
+        MusicManager.Instance.PlayMusic(music);
     }
 
 
