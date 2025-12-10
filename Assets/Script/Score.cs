@@ -53,8 +53,6 @@ public class ScoreManager : MonoBehaviour
         if (enemies.Length == 0 && GameData.end && GameData.Level != 2)
         {
             StartCoroutine(NextLevel());
-            // For readability
-            scoreText.color = Color.white;
         }
         else if (GameData.Level == 2)
         {
@@ -69,11 +67,13 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(winSound.length);
         GameData.Level++;
         SceneManager.LoadScene("Level" + GameData.Level);
+        // For readability
+        scoreText.color = Color.white;
     }
 
     public void Save()
     {
-        data.SaveGame(GameData.playerName,Score);
+        data.SaveGame(GameData.playerName, Score);
     }
 
     public BestScores[] Load()

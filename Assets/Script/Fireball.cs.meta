@@ -1,2 +1,12 @@
 fileFormatVersion: 2
 guid: 42dac70a28b3b40e29dbdd6c3a7f851d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - loseMusic: {fileID: 8300000, guid: aad73e30b0b9d499d88e635aabb580ef, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

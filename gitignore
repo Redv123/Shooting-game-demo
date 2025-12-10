@@ -100,3 +100,7 @@ InitTestScene*.unity*
 
 # macOS system files
 .DS_Store
+
+# Project local folders to ignore
+/web/
+/_Recovery/

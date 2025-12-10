@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6741942441844915513}
   - component: {fileID: 6519438643655584830}
   - component: {fileID: 8521073079043565397}
-  - component: {fileID: 788218488382384053}
+  - component: {fileID: 5612685750235394915}
   - component: {fileID: -5501873163573059645}
   m_Layer: 8
   m_Name: Fireball
@@ -37,6 +37,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6519438643655584830
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -82,6 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 653952533
   m_SortingLayer: 2
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -8587970630395617126, guid: fd3a1997df27c70f78e6b90005354fb7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -91,7 +93,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &8521073079043565397
 CapsuleCollider2D:
@@ -130,7 +131,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06, y: 0}
   m_Size: {x: 0.25, y: 0.2}
   m_Direction: 1
---- !u!114 &788218488382384053
+--- !u!114 &5612685750235394915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +142,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42dac70a28b3b40e29dbdd6c3a7f851d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::Fireball
+  loseMusic: {fileID: 8300000, guid: aad73e30b0b9d499d88e635aabb580ef, type: 3}
+  newMusic: {fileID: 8300000, guid: d18a1ebdc5b7e48fa9a4af38924f3a55, type: 3}
 --- !u!95 &-5501873163573059645
 Animator:
   serializedVersion: 7
