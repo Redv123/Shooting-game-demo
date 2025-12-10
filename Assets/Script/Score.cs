@@ -8,11 +8,11 @@ public class ScoreManager : MonoBehaviour
 {
     private TMP_Text scoreText;
     public object character;
-     [SerializeField]private AudioClip winSound;
+    [SerializeField] private AudioClip winSound;
     private static int Score = 0;
-    private bool levelTransitioning = false;
 
     [SerializeField] private AudioClip music;
+    private bool win = false;
 
     private SaveData data;
 
@@ -48,27 +48,26 @@ public class ScoreManager : MonoBehaviour
     {
         Score += value;
         scoreText.text = "Score: " + Score;
-        IsWin();
     }
 
     public void IsWin()
     {
-        if (levelTransitioning)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length != 0 || win || !GameData.end)
         {
             return;
         }
-
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length == 0 && GameData.end && GameData.Level != 2)
+        win = true;
+        if (GameData.Level == 1)
         {
-            levelTransitioning = true;
+            GameData.Level++;
             StartCoroutine(NextLevel());
         }
         else if (GameData.Level == 2)
         {
-            levelTransitioning = true;
             Save();
             StartCoroutine(Win());
+
         }
     }
 
@@ -88,10 +87,11 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Sound.OnSound.Invoke(winSound);
         yield return new WaitForSeconds(winSound.length);
-        GameData.Level++;
         SceneManager.LoadScene("Level" + GameData.Level);
+        GameData.end = false;
         // For readability
         scoreText.color = Color.white;
+        win = false;
     }
 
     public void Save()

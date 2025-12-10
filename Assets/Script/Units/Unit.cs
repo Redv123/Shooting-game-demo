@@ -33,5 +33,6 @@ public class Unit : MonoBehaviour
         Destroy(gameObject);
         if (point > 0)
             OnScored?.Invoke(point);
+        CheckWin?.Invoke();
     }
 }
