@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     public object character;
      [SerializeField]private AudioClip winSound;
     private static int Score = 0;
+    private bool levelTransitioning = false;
 
     [SerializeField] private AudioClip music;
 
@@ -52,13 +53,20 @@ public class ScoreManager : MonoBehaviour
 
     public void IsWin()
     {
+        if (levelTransitioning)
+        {
+            return;
+        }
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0 && GameData.end && GameData.Level != 2)
         {
+            levelTransitioning = true;
             StartCoroutine(NextLevel());
         }
         else if (GameData.Level == 2)
         {
+            levelTransitioning = true;
             Save();
             StartCoroutine(Win());
         }

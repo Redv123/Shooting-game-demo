@@ -23,9 +23,10 @@ public class BallonAction : Unit
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
         //Check if the player win
+        gameObject.tag = "Untagged";
         CheckWin?.Invoke();
+        Destroy(gameObject);
     }
 
     void FixedUpdate()
@@ -41,6 +42,7 @@ public class BallonAction : Unit
         StartCoroutine(Biger());
         yield return new WaitForSeconds(5f);
         OnScored?.Invoke(0);
+        gameObject.tag = "Default";
     }
 
     IEnumerator Biger()

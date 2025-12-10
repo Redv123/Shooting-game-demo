@@ -5,7 +5,7 @@ public class flyEnemy : Unit
 {
     private float speed = 6f;
     private float startPointX;
-    private readonly WaitForSeconds shortWait = new(2f);
+    private readonly WaitForSeconds shortWait = new(1f);
     [SerializeField] private GameObject fireball;
     private GameObject player;
     private float localTime = 0f;
@@ -40,6 +40,8 @@ public class flyEnemy : Unit
 
     void OnBecameInvisible()
     {
+        gameObject.tag = "Untagged";
+        CheckWin?.Invoke();
         Destroy(gameObject);
     }
 }
