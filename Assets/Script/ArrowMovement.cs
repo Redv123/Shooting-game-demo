@@ -28,6 +28,7 @@ public class ArrowMovement : MonoBehaviour
 
     void OnBecameInvisible()
     {
+        GameData.bowCount -=1;
         Destroy(gameObject);
     }
 

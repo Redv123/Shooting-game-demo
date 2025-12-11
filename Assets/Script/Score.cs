@@ -9,18 +9,16 @@ public class ScoreManager : MonoBehaviour
     private TMP_Text scoreText;
     public object character;
     [SerializeField] private AudioClip winSound;
-    private static int Score = 0;
-
+    private static int Score;
     [SerializeField] private AudioClip music;
     private bool win = false;
-
     private SaveData data;
-
     void Awake()
     {
         GameData.Level = 1;
         data = new SaveData();
         data.LoadGame();
+        Score = 0;
     }
 
     void Start()

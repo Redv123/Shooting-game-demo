@@ -61,9 +61,14 @@ public class PlayerMoverment : MonoBehaviour
 
         if (keyboard.spaceKey.wasPressedThisFrame || keyboard.jKey.wasPressedThisFrame)
         {
-            Sound.OnSound.Invoke(soundEffect);
-            GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-            arrow.GetComponent<ArrowMovement>().Init(sr.flipX);
+            if (GameData.bowCount < 4)
+            {
+                GameData.bowCount++;
+                Sound.OnSound.Invoke(soundEffect);
+                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                arrow.GetComponent<ArrowMovement>().Init(sr.flipX);
+            }
+
         }
     }
 
