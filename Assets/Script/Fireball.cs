@@ -15,12 +15,12 @@ public class Fireball : MonoBehaviour
         Vector3 start = transform.position;
         tager = GameObject.FindWithTag("Player").transform.position;
         direction = (tager - start).normalized;
-        transform.right = -direction;
+        transform.right = -direction; // Look at the player
     }
 
     void FixedUpdate()
     {
-        transform.position += speed * Time.deltaTime * direction;
+        transform.position += speed * Time.fixedDeltaTime * direction; // Direction still is a unit vector. 
     }
 
     void OnBecameInvisible()

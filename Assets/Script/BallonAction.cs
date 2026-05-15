@@ -6,7 +6,6 @@ public class BallonAction : Unit
     [SerializeField] private bool move = true;
     private readonly WaitForSeconds shortWait = new(0.1f);
 
-
     void Start()
     {
         if (move == true)
