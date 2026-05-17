@@ -6,59 +6,14 @@ public class PlayerMoverment : MonoBehaviour
     public Rigidbody2D character;
     private Vector2 moveInput;
     private SpriteRenderer sr;
-    [SerializeField] private GameObject arrowPrefab;
-    [SerializeField] private InputActionAsset inputActions;
-    [SerializeField] private string playerActionMapName = "Player";
-    [SerializeField] private string moveActionName = "Move";
-    [SerializeField] private string attackActionName = "Attack";
+    [SerializeField] private ArrowShooter arrowShooter;
     public float speed = 5f;
-    [SerializeField] private AudioClip soundEffect;
-    private InputActionMap playerActionMap;
-    private InputAction moveAction;
-    private InputAction attackAction;
-    private PlayerInput playerInput;
-    private bool controlsManagedInternally;
 
-    void Awake()
+    void Start()
     {
         character = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        playerInput = GetComponent<PlayerInput>();
-        ResolveInputActions();
-    }
-
-    void OnEnable()
-    {
-        if (playerActionMap == null)
-        {
-            return;
-        }
-
-        moveAction.performed += OnMovePerformed;
-        moveAction.canceled += OnMoveCanceled;
-        attackAction.performed += OnAttackPerformed;
-
-        if (controlsManagedInternally)
-        {
-            playerActionMap.Enable();
-        }
-    }
-
-    void OnDisable()
-    {
-        if (playerActionMap == null)
-        {
-            return;
-        }
-
-        moveAction.performed -= OnMovePerformed;
-        moveAction.canceled -= OnMoveCanceled;
-        attackAction.performed -= OnAttackPerformed;
-
-        if (controlsManagedInternally)
-        {
-            playerActionMap.Disable();
-        }
+        arrowShooter = arrowShooter != null ? arrowShooter : GetComponent<ArrowShooter>();
     }
 
     void Update()
@@ -69,6 +24,33 @@ public class PlayerMoverment : MonoBehaviour
             return;
         }
 
+        moveInput = Vector2.zero;
+        Keyboard keyboard = Keyboard.current;
+
+        if (keyboard == null)
+        {
+            return;
+        }
+
+        if (keyboard.upArrowKey.isPressed || keyboard.wKey.isPressed)
+        {
+            moveInput.y += 1;
+        }
+        if (keyboard.downArrowKey.isPressed || keyboard.sKey.isPressed)
+        {
+            moveInput.y -= 1;
+        }
+        if (keyboard.leftArrowKey.isPressed || keyboard.aKey.isPressed)
+        {
+            moveInput.x -= 1;
+        }
+        if (keyboard.rightArrowKey.isPressed || keyboard.dKey.isPressed)
+        {
+            moveInput.x += 1;
+        }
+
+        moveInput = moveInput.normalized;
+
         if (moveInput.x > 0.01f)
         {
             sr.flipX = false;
@@ -77,52 +59,12 @@ public class PlayerMoverment : MonoBehaviour
         {
             sr.flipX = true;
         }
-    }
 
-    private void ResolveInputActions()
-    {
-        if (playerInput != null && playerInput.actions != null)
+        if ((keyboard.spaceKey.wasPressedThisFrame || keyboard.jKey.wasPressedThisFrame) && arrowShooter != null)
         {
-            inputActions = playerInput.actions;
-            controlsManagedInternally = false;
+            // ArrowShooter handles pooling and the active arrow limit.
+            arrowShooter.TryShoot(transform.position, sr.flipX);
         }
-        else
-        {
-            controlsManagedInternally = inputActions != null;
-        }
-
-        if (inputActions == null)
-        {
-            Debug.LogError("PlayerMoverment requires a PlayerInput component or an InputActionAsset reference.", this);
-            return;
-        }
-
-        playerActionMap = inputActions.FindActionMap(playerActionMapName, true);
-        moveAction = playerActionMap.FindAction(moveActionName, true);
-        attackAction = playerActionMap.FindAction(attackActionName, true);
-    }
-
-    private void OnMovePerformed(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>().normalized;
-    }
-
-    private void OnMoveCanceled(InputAction.CallbackContext context)
-    {
-        moveInput = Vector2.zero;
-    }
-
-    private void OnAttackPerformed(InputAction.CallbackContext context)
-    {
-        if (Time.timeScale == 0f || GameData.bowCount >= 4)
-        {
-            return;
-        }
-
-        GameData.bowCount++;
-        Sound.OnSound.Invoke(soundEffect);
-        GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-        arrow.GetComponent<ArrowMovement>().Init(sr.flipX);
     }
 
     void FixedUpdate()

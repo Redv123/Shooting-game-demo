@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class ArrowMovement : MonoBehaviour
 {
@@ -6,15 +7,21 @@ public class ArrowMovement : MonoBehaviour
     [SerializeField] private float speed = 7f;
     private int direction;
     private SpriteRenderer sr;
+    private Action<ArrowMovement> releaseArrow;
+    private bool isReleased;
 
-    void Start()
+    void Awake()
     {
         arrow = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
-    public void Init(bool flipX)
+    public void Init(bool flipX, Action<ArrowMovement> releaseCallback)
     {
-        sr = GetComponent<SpriteRenderer>();
+        // The shooter owns the pool, so arrows call this when they are finished.
+        releaseArrow = releaseCallback;
+        isReleased = false;
+
         if (flipX)
         {
             direction = -1;
@@ -23,13 +30,13 @@ public class ArrowMovement : MonoBehaviour
         else
         {
             direction = 1;
+            sr.flipX = false;
         }
     }
 
     void OnBecameInvisible()
     {
-        GameData.bowCount -=1;
-        Destroy(gameObject);
+        Release();
     }
 
     void FixedUpdate()
@@ -37,18 +44,25 @@ public class ArrowMovement : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.fixedDeltaTime * direction);
     }
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Unit unit = collision.GetComponent<Unit>();
         if (unit)
         {
-            Destroy(gameObject);
             unit.Hit(1);
+            Release();
         }
+    }
+
+    private void Release()
+    {
+        // Collision and visibility callbacks can happen close together.
+        if (isReleased)
+        {
+            return;
+        }
+
+        isReleased = true;
+        releaseArrow?.Invoke(this);
     }
 }

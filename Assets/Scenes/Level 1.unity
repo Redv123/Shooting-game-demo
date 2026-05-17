@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 246316905}
   - component: {fileID: 246316904}
   - component: {fileID: 246316908}
+  - component: {fileID: 246316910}
   - component: {fileID: 246316906}
   - component: {fileID: 246316907}
   - component: {fileID: 246316909}
@@ -411,8 +412,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   character: {fileID: 246316906}
-  arrowPrefab: {fileID: 8830756572955196847, guid: fad386e4c56cc42b7b9b25c3eaf76ad0, type: 3}
+  arrowShooter: {fileID: 246316910}
   speed: 7
+--- !u!114 &246316910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246316903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4bcb11d8324a8ab33e5ee02017ca2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  arrowPrefab: {fileID: 1019421718513782338, guid: fad386e4c56cc42b7b9b25c3eaf76ad0, type: 3}
+  poolSize: 4
   soundEffect: {fileID: 8300000, guid: d76f4bfbdd59844dba7a1db6334135be, type: 3}
 --- !u!114 &246316909
 MonoBehaviour:
